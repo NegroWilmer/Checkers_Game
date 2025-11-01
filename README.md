@@ -1,2 +1,2 @@
-# Checkers-Game
+# Checkers_Game
 **Demostracion de conocimento en programación, juego de damas chinas en C++**
