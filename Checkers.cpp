@@ -87,14 +87,6 @@ bool movePiece(int fromRow, int fromCol, int toRow, int toCol, char player) {
 	return false;
 }
 
-int main() {
-    clearScreen();
-    cout << "¡Bienvenidos a Checkers!\n";
-
-
-    return 0;
-}
-
 bool isGameOver(char& winner) {
 	int rCout = 0, bCout = 0;
 	for (int i = 0; i < SIZE; ++i)
