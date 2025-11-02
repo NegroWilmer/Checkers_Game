@@ -85,13 +85,64 @@ bool movePiece(int fromRow, int fromCol, int toRow, int toCol, char player) {
 	}
 
 	return false;
-
 }
 
 int main() {
     clearScreen();
-    cout << "¡Bienvenidos a Checkers!\n";
+    cout << "Â¡Bienvenidos a Checkers!\n";
 
 
     return 0;
+}
+
+bool isGameOver(char& winner) {
+	int rCout = 0, bCout = 0;
+	for (int i = 0; i < SIZE; ++i)
+		for (int j = 0; j < SIZE; ++j) {
+			if (board[i][j] == 'w') rCout++;
+			if (board[i][j] == 'b') bCout++;
+	}
+
+	if (rCout == o) {
+		winner = 'b'; return true
+	}
+	if (bCout == 0) {
+		winner = 'w'; return true;
+	}
+
+	return false;
+
+}
+
+int main() {
+	initBoard();
+	char player = 'w';
+	char winner;
+
+	while (true) {
+		printBoard();
+		cout << "jugador" << player << "'s turn (format: fromRow fromCol toRow toCol): ";
+		int fromRow, fromCol, toRow, toCol;
+		cin >> fronRow >> fromCol >> toRow >> toCol;
+
+		if (!cin) {
+			cout << "entrada no valida. Saliendo. \n";
+			getch();
+			break;
+		}
+		if (movePiece(fromRow, fromCol, toRow, toCol, player)) {
+			if (isGameOver(winner)) {
+				printBoard();
+				cout << "Game over! jugador " << player << "wins\n";
+				getch();
+				break;
+			}
+			player = (player == 'w') ? 'b' : 'w';
+		}
+		else {
+			cout << "movimiento invalido. intente de nuevo \n";
+			getch();
+		}
+	}
+	return 0;
 }
