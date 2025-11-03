@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
+#include <iomanip>
 
 const int SIZE = 10;
 
@@ -36,18 +37,17 @@ void initBoard() {
 }
 
 void printBoard() {
-	cout << " ";
+
+	cout << "   ";
 	for (int i = 0; i < SIZE; ++i)
-		cout << i << " ";
+		cout << setw(3) << i;
 	cout << "\n";
 
-
-
-
 	for (int i = 0; i < SIZE; ++i) {
-		cout << i << " ";
+		
+		cout << setw(3) << i;
 		for (int j = 0; j < SIZE; ++j) {
-			cout << board[i][j] << " ";
+			cout << '[' << board[i][j] << ']';
 		}
 		cout << "\n";
 	}
