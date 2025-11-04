@@ -1,7 +1,7 @@
 #include "clear_window.h"
 #include <iostream>
 #include <string>
-#include <conio.h>
+#include "linux.h"
 #include <iomanip>
 
 const int SIZE = 10;
@@ -102,14 +102,14 @@ bool movePiece(int fromRow, int fromCol, int toRow, int toCol, char player) {
 }
 
 bool isGameOver(char& winner) {
-	int rCout = 0, bCout = 0;
+	int wCout = 0, bCout = 0;
 	for (int i = 0; i < SIZE; ++i)
 		for (int j = 0; j < SIZE; ++j) {
-			if (board[i][j] == 'w') rCout++;
+			if (board[i][j] == 'w') wCout++;
 			if (board[i][j] == 'b') bCout++;
 		}
 
-	if (rCout == 0) {
+	if (wCout == 0) {
 		winner = 'b';
 		return true;
 	}
