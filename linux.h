@@ -8,6 +8,7 @@ int _getch();
 
 #include <termios.h>
 #include <unistd.h>
+#include <cstdio>
 
 int _getch() {
     struct termios oldt, newt;
@@ -24,5 +25,6 @@ int _getch() {
 #endif
 
 #endif 
+
 
 
