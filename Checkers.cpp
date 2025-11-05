@@ -1,18 +1,16 @@
 #include "clear_window.h"
+#include "Linux.h"
 #include <iostream>
-#include <string>
-#include "linux.h"
 #include <iomanip>
 
-const int SIZE = 10;
 
-using namespace std;
+const int SIZE = 10;
 
 char board[SIZE][SIZE];
 
 void initBoard() {
 	for (int i = 0; i < SIZE; ++i) {
-		for (int j = 0; j < SIZE; ++j) {
+		for (int	 j = 0; j < SIZE; ++j) {
 			board[i][j] = ((i + j) % 2 == 1) ? '.' : ' ';
 		}
 	}
@@ -38,18 +36,18 @@ void initBoard() {
 
 void printBoard() {
 
-	cout << "   ";
+	std::cout << "   ";
 	for (int i = 0; i < SIZE; ++i)
-		cout << setw(3) << i;
-	cout << "\n";
+		std::cout << std::setw(3) << i;
+	std::cout << "\n";
 
 	for (int i = 0; i < SIZE; ++i) {
 		
-		cout << setw(3) << i;
+		std::cout << std::setw(3) << i;
 		for (int j = 0; j < SIZE; ++j) {
-			cout << '[' << board[i][j] << ']';
+			std::cout << '[' << board[i][j] << ']';
 		}
-		cout << "\n";
+		std::cout << "\n";
 	}
 }
 
@@ -73,7 +71,7 @@ bool movePiece(int fromRow, int fromCol, int toRow, int toCol, char player) {
 	int colDiff = toCol - fromCol;
 
 	
-	if (rowDiff == dir && abs(colDiff) == 1)
+	if (rowDiff == dir && std::abs(colDiff) == 1)
 	{
 		board[toRow][toCol] = player;
 		board[fromRow][fromCol] = '.';
@@ -81,7 +79,7 @@ bool movePiece(int fromRow, int fromCol, int toRow, int toCol, char player) {
 	}
 
 	
-	if (rowDiff == 2 * dir && abs(colDiff) == 2) {
+	if (rowDiff == 2 * dir && std::abs(colDiff) == 2) {
 		int midRow = fromRow + dir;
 		int midCol = fromCol + (colDiff / 2);
 
@@ -128,26 +126,26 @@ int main() {
 
 	while (true) {
 		printBoard();
-		cout << "jugador " << player << "'s turn (format: fromRow fromCol toRow toCol): ";
+		std::cout << "jugador " << player << "'s turn (format: fromRow fromCol toRow toCol): ";
 		int fromRow, fromCol, toRow, toCol;
-		cin >> fromRow >> fromCol >> toRow >> toCol;
+		std::cin >> fromRow >> fromCol >> toRow >> toCol;
 
-		if (!cin) {
-			cout << "entrada no valida. Saliendo. \n";
+		if (!std::cin) {
+			std::cout << "entrada no valida. Saliendo. \n";
 			(void)_getch();
 			break;
 		}
 		if (movePiece(fromRow, fromCol, toRow, toCol, player)) {
 			if (isGameOver(winner)) {
 				printBoard();
-				cout << "Game over! jugador " << player << "wins\n";
+				std::cout << "Game over! jugador " << player << "wins\n";
 				(void)_getch();
 				break;
 			}
 			player = (player == 'w') ? 'b' : 'w';
 		}
 		else {
-			cout << "movimiento invalido. intente de nuevo \n";
+			std::cout << "movimiento invalido. intente de nuevo \n";
 			(void)_getch();
 		}
 	}
