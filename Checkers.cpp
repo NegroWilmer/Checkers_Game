@@ -1,5 +1,5 @@
 #include "clear_window.h"
-#include "Linux.h"
+#include "linux.h"
 #include <iostream>
 #include <iomanip>
 
