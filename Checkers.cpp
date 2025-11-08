@@ -119,7 +119,7 @@ bool isGameOver(char& winner) {
 
 }
 
-int main() {
+void jugarDamas () {
 	initBoard();
 	char player = 'w';
 	char winner;
@@ -149,5 +149,4 @@ int main() {
 			(void)_getch();
 		}
 	}
-	return 0;
 }
