@@ -34,7 +34,7 @@ Diseño único de la ficha del rey para sobresaltar.
 
 Distintos tipos de funciones void para separar el código.
 
-Usando técnicas de c++ modernas como static_cast, std::toupper y std::abs para mayor seguridad y claridad del código.
+Usando técnicas de c++ modernas como static_cast, std::toupper y std::abs.
 
 
 
