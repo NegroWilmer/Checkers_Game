@@ -10,7 +10,7 @@ Codificado en Visual Studio Comunnity 2022.
 
 *Para Visual Studio Code: https://youtu.be/RHrU3I1nsEI?si=JiHc57FnSJ7ovMOp*
 
-*Dependiendo de tu terminal del sistema operador puede que los pasos varien, pero es indipensable que se tengo SFML instalado, en la version 3.0.2 que fue la utlizada para este proyecto.*
+*Dependiendo de tu terminal del sistema operador puede que los pasos varien, pero es indipensable que se tengo SFML instalado, en la version 3.0.2 que fue la utlizada para este proyecto, junto con los d lib, libs, y bin necesarios para SFML.*
 
 
 
